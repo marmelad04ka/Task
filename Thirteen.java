@@ -159,5 +159,25 @@ public class Thirteen {
         }
         return ' ';
     }
-    //№10
+
+    //№10 шифр Цезаря
+    public static String floatingCaesarCipher(String str, int step){
+        String[] strArr = new String[str.length()];
+        for(int i = 0; i < str.length(); i++){
+            char ch = str.charAt(i);
+            int num = (int) ch;
+            if(num >= 97 && num <= 122) {
+                num += step;
+                if(num > 122) num = (num - 122) + 96;
+                ch = (char) num;
+            }
+            if(num >= 65 && num <= 90){
+                num += step;
+                if(num > 90) num = (num - 90) + 64;
+                ch = (char) num;
+            }
+            strArr[i] = String.valueOf(ch);
+        }
+        return String.join("", strArr);
+    }
 }
