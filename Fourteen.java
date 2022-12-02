@@ -39,7 +39,7 @@ public class Fourteen {
     }
 
     //№3 https://www.hackerrank.com/challenges/java-string-tokens/problem?isFullScreen=true
-    public static String count(String str){
+    public static String splitText(String str){
         String str1 = str.replaceAll("[^a-zA-Z]", " ").replaceAll("[^a-zA-Z ]", "");
         String[] strArr = str1.split(" ");
         for(int i = 0; i < strArr.length; i++){
