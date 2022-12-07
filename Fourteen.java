@@ -53,7 +53,34 @@ public class Fourteen {
         return "2";
     }
 
-    //№4
+    //№4 Палиндром ди число
+    public boolean isPalindrome(int x) {
+        if(x < 0) return false;
+        int[] arr = Integer.toString(x).chars().map(c -> c - '0').toArray();
+        int[] firstHalf = new int[arr.length /2], endHalf = new int[arr.length /2 ] ;
+        int count = 0;
+        if(arr.length%2 == 1){
+            for(int i = 0; i < arr.length/2 ; i++) firstHalf[i] = arr[i];
+            for(int i = arr.length/2 + 1; i < arr.length  ; i++){
+                endHalf[count] = arr[i];
+                count += 1;
+            }
+        }
+        if(arr.length%2 == 0){
+            for(int i = 0; i < arr.length/2 ; i++) firstHalf[i] = arr[i];
+            for(int i = arr.length/2; i < arr.length  ; i++){
+                endHalf[count] = arr[i];
+                count += 1;
+            }
+        }
+        for (int i = 0; i < endHalf.length / 2; i++) {
+            int tmp = endHalf[i];
+            endHalf[i] = endHalf[endHalf.length - i - 1];
+            endHalf[endHalf.length - i - 1] = tmp;
+        }
+        return Arrays.equals(firstHalf, endHalf);
+    }
+
     //№5
     //№6
     //№7
